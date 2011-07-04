@@ -69,7 +69,7 @@ pushlet.actions.register = function(request, response, module) {
 	var clientIndex = pushlet.clients[module].push([id, response]) - 1;
 	request.on('close', function() {
 		console.log('connection closed by the client, removing client at index '+clientIndex+' from array.');
-		pushlet.clients.splice(clientIndex, 1);
+		pushlet.clients[module].splice(clientIndex, 1);
 	});
 }
 
